@@ -1,0 +1,26 @@
+From 2c19d3b37d16d6ffc8ed5476916cb61d854a83f5 Mon Sep 17 00:00:00 2001
+From: NU-LL <1125934312@qq.com>
+Date: Sat, 27 Apr 2024 16:59:48 +0800
+Subject: [PATCH] FIX: Fix uboot compilation version problem
+
+Signed-off-by: NU-LL <1125934312@qq.com>
+---
+ scripts/dtc/pylibfdt/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/dtc/pylibfdt/Makefile b/scripts/dtc/pylibfdt/Makefile
+index 493995e3..a7579f0c 100644
+--- a/scripts/dtc/pylibfdt/Makefile
++++ b/scripts/dtc/pylibfdt/Makefile
+@@ -17,7 +17,7 @@ quiet_cmd_pymod = PYMOD   $@
+       cmd_pymod = unset CROSS_COMPILE; unset CFLAGS; \
+ 		CC="$(HOSTCC)" LDSHARED="$(HOSTCC) -shared " \
+ 		LDFLAGS="$(HOSTLDFLAGS)" \
+-		VERSION="u-boot-$(UBOOTVERSION)" \
++		VERSION="$(UBOOTVERSION)" \
+ 		CPPFLAGS="$(HOSTCFLAGS) -I$(LIBFDT_srcdir)" OBJDIR=$(obj) \
+ 		SOURCES="$(PYLIBFDT_srcs)" \
+ 		SWIG_OPTS="-I$(LIBFDT_srcdir) -I$(LIBFDT_srcdir)/.." \
+-- 
+2.44.0
+

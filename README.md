@@ -28,10 +28,15 @@ $ git clone -b 2023.05.1 https://github.com/buildroot/buildroot
 $ git clone https://github.com/NU-LL/buildroot-external-allwinner
 # configure and build
 $ cd buildroot/
-buildroot/ $ make BR2_EXTERNAL=../buildroot-external-allwinner tiny200_defconfig
+buildroot/ $ make BR2_EXTERNAL=../buildroot-external-allwinner xxx_defconfig
 # start the build
 buildroot/ $ make
 ```
+
+NOTE: Currently you are able to choose the following configuration for the above `xxx_defconfig` parameter:
+
+* tiny200_defconfig
+* walnutpi_defconfig
 
 ## Flashing and booting the system
 
