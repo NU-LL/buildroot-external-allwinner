@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# Start the wlan0....
+#
+
+case "$1" in
+  start)
+	echo "Starting wlan0: "
+	# install uwe5622(aka AW859A) driver ko
+	modprobe sprdwl_ng
+	[ $? = 0 ] && echo "install sprdwl_ng.ko OK" || echo "install sprdwl_ng.ko FAIL"
+	# start wpa server
+	wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf -B
+	[ $? = 0 ] && echo "start wpa_supplicant OK" || echo "start wpa_supplicant FAIL"
+	# busybox udhcpc -i wlan0
+	;;
+  stop)
+	echo "Stopping wlan0: "
+	# stop wpa server
+	killall wpa_supplicant
+	# remove uwe5622(aka AW859A) driver ko
+	rmmod sprdwl_ng
+	[ $? = 0 ] && echo "remove sprdwl_ng.ko OK" || echo "remove sprdwl_ng.ko FAIL"
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
