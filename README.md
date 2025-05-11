@@ -23,12 +23,15 @@ Next, we just need to:
 
 ```bash
 # get buildroot
+# git clone -b 2025.02.1 https://github.com/buildroot/buildroot
 $ git clone -b 2023.05.1 https://github.com/buildroot/buildroot
 # get external tree
 $ git clone https://github.com/NU-LL/buildroot-external-allwinner
 # configure and build
 $ cd buildroot/
 buildroot/ $ make BR2_EXTERNAL=../buildroot-external-allwinner xxx_defconfig
+# download some package
+buildroot/ $ make BR2_EXTERNAL=../buildroot-external-allwinner source
 # start the build
 buildroot/ $ make
 ```

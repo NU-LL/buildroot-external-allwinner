@@ -1,0 +1,23 @@
+From 05de2c0a5ffa2b4f77aebcb3f98a28ecc262034e Mon Sep 17 00:00:00 2001
+From: NU-LL <1125934312@qq.com>
+Date: Sun, 11 May 2025 19:04:02 +0800
+Subject: [PATCH] ENH: package/hiredis: fix build with host-cmake 4.0
+
+Signed-off-by: NU-LL <1125934312@qq.com>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0fcf29b..2881c6e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
++CMAKE_MINIMUM_REQUIRED(VERSION 3.5.0)
+ 
+ OPTION(BUILD_SHARED_LIBS "Build shared libraries" ON)
+ OPTION(ENABLE_SSL "Build hiredis_ssl for SSL support" OFF)
+-- 
+2.49.0
+
